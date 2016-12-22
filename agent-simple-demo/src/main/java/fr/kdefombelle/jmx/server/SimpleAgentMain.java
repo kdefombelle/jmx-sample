@@ -33,6 +33,7 @@ public class SimpleAgentMain extends AbstractJmxMain{
         HashMap<String, Object> env = new HashMap<String, Object>();
         env.put(JMXConnectorServer.AUTHENTICATOR, new SimpleJmxAuthenticator());
         String jmxUrl = new JmxUrlBuilder().setRmiRegistryPort(RMI_REGISTRY_PORT).build();
+        LOGGER.debug("RMI Registry created {}: " + jmxUrl);
         SimpleAgent agent = new SimpleAgent(jmxUrl, env, new ObjectNameFactory(JmxConstantsDemo.DOMAIN));
 
         //MBean to monitor
