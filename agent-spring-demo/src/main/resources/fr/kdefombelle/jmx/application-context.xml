@@ -22,8 +22,13 @@
 		<property name="server" ref="mbeanServer" />
 		<property name="beans">
 			<map>
+				
+				<!--  either the engine mbean is annotated with @ManagedResource for the naming strategy -->
 				<entry key="" value-ref="engine1" />
-				<!-- <entry key="Demo:type=engine,name=E2" value-ref="engine2" /> -->
+				<entry key="" value-ref="engine2" />
+				
+				<!--  or it is required to fill the key property -->
+				<!-- <entry key="demo:type=engine,name=E2" value-ref="engine2" /> -->
 			</map>
 		</property>
 		<property name="assembler">
@@ -39,6 +44,7 @@
 	<bean id="namingStrategy" class="org.springframework.jmx.export.naming.MetadataNamingStrategy">
 		<property name="attributeSource" ref="jmxAttributeSource" />
 	</bean>
+	
 	<bean id="jmxAttributeSource" class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource" />
 
 	<bean id="engineFactory" class="fr.kdefombelle.jmx.beans.EngineFactory" />

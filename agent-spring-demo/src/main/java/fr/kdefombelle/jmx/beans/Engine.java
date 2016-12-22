@@ -9,12 +9,11 @@ import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.jmx.export.notification.NotificationPublisher;
 import org.springframework.jmx.export.notification.NotificationPublisherAware;
 
-import fr.kdefombelle.jmx.JmxConstants;
 import fr.kdefombelle.jmx.JmxConstantsDemo;
 import fr.kdefombelle.jmx.ObjectNameFactory;
 
-
-@ManagedResource(objectName = "Demo:type=engine,name=E1")
+//TODO: handle name=id for JMX registration SPEL, implements interface ObjectNamingStrategy...
+@ManagedResource(objectName = "demo:type=engine,name=E1", description="a demo engine")
 public class Engine implements NotificationPublisherAware {
 
     //~ ----------------------------------------------------------------------------------------------------------------
@@ -35,6 +34,8 @@ public class Engine implements NotificationPublisherAware {
 
     private NotificationPublisher notificationPublisher;
 
+	//private EngineDetails engineDetails;
+
     //~ ----------------------------------------------------------------------------------------------------------------
     //~ Constructors 
     //~ ----------------------------------------------------------------------------------------------------------------
@@ -43,6 +44,7 @@ public class Engine implements NotificationPublisherAware {
         this.id = id;
         this.state = "INIT";
         this.objectNameFactory = new ObjectNameFactory(JmxConstantsDemo.DOMAIN);
+        //setEngineDetails(new EngineDetails("as" + id, System.currentTimeMillis()));
     }
 
     //~ ----------------------------------------------------------------------------------------------------------------
@@ -90,5 +92,13 @@ public class Engine implements NotificationPublisherAware {
                 "String", oldState, this.state);
         notificationPublisher.sendNotification(n);
     }
+
+//	public final void setEngineDetails(EngineDetails engineDetails) {
+//	    this.engineDetails = engineDetails;
+//	}
+
+//	public EngineDetails getDetails() {
+//	    return engineDetails;
+//	}
 
 }

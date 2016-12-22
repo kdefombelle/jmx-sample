@@ -13,7 +13,8 @@ public class SpringAgentMain extends AbstractJmxMain{
     //~ ----------------------------------------------------------------------------------------------------------------
 	
     public static void main(String[] args) throws IOException {
-        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "fr/kdefombelle/jmx/application-context.xml" });
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+        		new String[] { "fr/kdefombelle/jmx/application-context.xml" });
         waitForEnterPressed();
     }
 

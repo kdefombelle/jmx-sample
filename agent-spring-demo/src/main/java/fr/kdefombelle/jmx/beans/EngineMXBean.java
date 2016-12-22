@@ -20,4 +20,6 @@ public interface EngineMXBean {
 
     String getState();
 
+	EngineDetails getDetails();
+
 }
