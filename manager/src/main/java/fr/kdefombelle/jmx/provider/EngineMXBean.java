@@ -2,11 +2,10 @@ package fr.kdefombelle.jmx.provider;
 
 import java.io.IOException;
 
-import javax.management.NotificationEmitter;
 import javax.management.OperationsException;
 
 
-public interface EngineMXBean extends NotificationEmitter {
+public interface EngineMXBean {//extends NotificationEmitter {
 
     //~ ----------------------------------------------------------------------------------------------------------------
     //~ Methods 

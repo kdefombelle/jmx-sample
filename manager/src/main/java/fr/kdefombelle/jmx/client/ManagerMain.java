@@ -36,6 +36,11 @@ import fr.kdefombelle.jmx.ObjectNameFactory;
 import fr.kdefombelle.jmx.provider.EngineMXBean;
 import fr.kdefombelle.jmx.server.AbstractJmxMain;
 
+
+
+
+//TODO:add namespace annotation spring mbean
+//todo: add option jconsole JMX
 public class ManagerMain extends AbstractJmxMain{
 
     //~ ----------------------------------------------------------------------------------------------------------------
@@ -63,7 +68,7 @@ public class ManagerMain extends AbstractJmxMain{
             String[] creds = { "kdefombelle", "mrpasswd" };
             env.put(JMXConnector.CREDENTIALS, creds);
 
-            //MX runtime uses a static JMX service URL to perform a JNDI lookup of the JMX connector stub in the RMI registry
+            //runtime uses a static JMX service URL to perform a JNDI lookup of the JMX connector stub in the RMI registry
             jmxConnectorStub = JMXConnectorFactory.connect(url, env);
             LOGGER.debug("Connected...");
 
@@ -116,7 +121,7 @@ public class ManagerMain extends AbstractJmxMain{
 
     public static class RiskEngineListener implements NotificationListener {
         public void handleNotification(Notification notification, Object handback) {
-            LOGGER.debug("\n##########Received notification: {}", notification.getSource());
+            LOGGER.debug("Received notification\n>>>>>> {}", notification.getSource());
         }
     }
 }
